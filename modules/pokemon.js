@@ -3,6 +3,12 @@ const cache = require('./cache.js');
 const mongoose = require('mongoose');
 // const PokemonModel = require('../models/pokemon.js');
 
+const db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error'));
+db.once('open', function () {
+  console.log('Mongoose is connected');
+});
+
 mongoose.connect(process.env.DB_URL);
 
 class Pokemon {
@@ -21,14 +27,12 @@ async function getPokemon(req, res, next) {
   console.log(pokemon);
   // https://api.pokemontcg.io/v2/cards?q=name:gardevoir
   let config = {
-    // baseURL: 'https://api.themoviedb.org/3/search/movie',
     baseURL: 'https://api.pokemontcg.io/v2/cards',
     params: {
       q: `name:${pokemon}`,
     },
     method: 'get',
   };
-  // console.log(config.params);
   let key = pokemon + 'Data';
   if (cache[key]) {
     console.log('found CASH!' + cache[key]);

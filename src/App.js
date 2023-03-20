@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 const axios = require('axios');
 let cache = require('./cache.js');
@@ -9,13 +9,13 @@ async function getMovies (request, response, next) {
   console.log(request.query.keyword)
   try {
     //let willsmith = request.query.willsmith;
-    let keyword = request.query.keyword
+    let keyword = request.query.keyword;
     let key = keyword + 'Data';
     // const key 
     // let params ={
     //   key: process.env.MOVIE_API_KEY,
     //   query: willsmith;
-     //language: en-US,
+    //language: en-US,
     //page: 1,
     //include_adult: false
 
