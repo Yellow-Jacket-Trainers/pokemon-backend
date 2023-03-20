@@ -50,3 +50,20 @@ What is your strategy for ensuring everyone’s voice is heard?
 - We make sure everyone speaks in the morning meeting, and make sure everyone's question is heard. 
 How will you ensure that you are creating a safe environment where everyone feels comfortable speaking up?
 - Don't shot down ideas, don't redicule team member's ideas and questions
+
+
+## Wireframe
+
+[HomePage](/images/Home.png)
+
+[MainPage](/images/Main.png)
+
+[AboutPage](/images/About.png)
+
+## Domain Modeling
+
+[Domain Modeling](/images/Domain%20Modeling.png)
+
+## Database Schema Diagram
+
+[Schema](/images/Schema.png)
