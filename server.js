@@ -11,8 +11,12 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+// const verifyUser = require('./auth.js');
+// app.use(verifyUser);
+
 const getPokemon = require('./modules/pokemon.js');
-const Poke = require('./models/pokemon-model.js')
+const Poke = require('./models/pokemon-model.js');
+
 
 app.get('/', (req, res) => {
   res.status(200).send('Hello from our server!');
@@ -21,10 +25,14 @@ app.get('/', (req, res) => {
 //get Pokemon data from API
 app.get('/pokemon', getPokemon);
 
-app.get('/pokemon', getPokemonTeam);
-app.post('/pokemon', postPokemonTeam);
-app.delete('/pokemon/:id', deletePokemonTeam);
-app.put('/pokemon/:id', putPokemonTeam);
+//data CRUD from MongoDB
+app.get('/pokemondb', getPokemonTeam);
+app.post('/pokemondb', postPokemonTeam);
+app.delete('/pokemondb/:id', deletePokemonTeam);
+app.put('/pokemondb/:id', putPokemonTeam);
+
+//getting the user info
+// app.get('/user', handleGetUser);
 
 //get Pokemon from Database
 async function getPokemonTeam(req, res) {
@@ -52,6 +60,11 @@ async function putPokemonTeam(req, res){
   let updatedPokeFromDb = await Poke.findByIdAndUpdate(id, updatedPoke, {new: true, overwrite: true});
   res.status(200).send(updatedPokeFromDb);
 }
+
+// function handleGetUser(req, res) {
+//   console.log('Getting the user');
+//   res.send(req.user);
+// }
 
 
 // app.get('/weather', weatherHandler);

@@ -19,7 +19,6 @@ const cors = require('cors');
 const getMovies = require('./modules/movie');
 const getWeather = require('./modules/weather');
 
-
 // Use
 // once we require something, we have to use it
 // this is where we assign the required file a varaible 
