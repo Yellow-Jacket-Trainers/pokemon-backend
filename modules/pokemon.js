@@ -14,6 +14,7 @@ mongoose.connect(process.env.DB_URL);
 class Pokemon {
   constructor(pokemonObject) {
     this.name = pokemonObject.name,
+    this.types = pokemonObject.types,
     this.hp = pokemonObject.hp,
     this.abilities = pokemonObject.abilities,
     this.attacks = pokemonObject.attacks,

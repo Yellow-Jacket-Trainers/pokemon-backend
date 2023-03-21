@@ -34,6 +34,7 @@ app.put('/pokemondb/:id', putPokemonTeam);
 //getting the user info
 // app.get('/user', handleGetUser);
 
+
 //get Pokemon from Database
 async function getPokemonTeam(req, res) {
   const pokeTeam = await Poke.find({});

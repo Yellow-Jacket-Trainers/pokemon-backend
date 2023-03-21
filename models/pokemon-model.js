@@ -6,6 +6,7 @@ const { Schema } = mongoose;
 const pokemonSchema = new Schema({
   name: {type: String, required: true},
   hp: {type: Number, required: true},
+  types: {type: Object, required: true},
   abilities: {type: Object, required: true},
   attacks: {type: Object, required: true},
   weaknesses: {type: Object, required: true},
