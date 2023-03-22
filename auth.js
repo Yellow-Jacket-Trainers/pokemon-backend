@@ -1,15 +1,10 @@
-'use strict';
+const jwt = require('jsonwebtoken'); // auth
+const jwksClient = require('jwks-rsa'); // auth
 
-// install: npm i jsonwebtoken
-// install: npm i jwks-rsa
-
-const jwt = require ('jsonwebtoken');
-const jwksClient = require ('jwks-rsa');
-
-// =============== HELPER METHODS, pulled from the jsonwebtoken documentation =================== //
-//                 https://www.npmjs.com/package/jsonwebtoken                                     //
-
-// Define a client, this is a connection to YOUR auth0 account, using the URL given in your dashboard
+// This is a special function for express called "Middleware"
+// We can simply "use()" this in our server
+// When a user is validated, request.user will contain their information
+// Otherwise, this will force an error
 function verifyUser(request, response, next) {
 
   function valid(err, user) {
@@ -46,5 +41,7 @@ function getKey(header, callback) {
     callback(null, signingKey);
   });
 }
+
+
 
 module.exports = verifyUser;
