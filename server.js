@@ -34,6 +34,7 @@ app.put('/pokemondb/:id', putPokemonTeam);
 //getting the user info
 // app.get('/user', handleGetUser);
 
+
 //get Pokemon from Database
 async function getPokemonTeam(req, res) {
   const pokeTeam = await Poke.find({});
@@ -73,7 +74,7 @@ async function putPokemonTeam(req, res){
 app.get('*', (req, res) => {
   res.send('The source does not exist');
 } );
-app.use((error, request, response, next) => {
+app.use((error, request, response) => {
   response.status(500).send(error.message);
 });
 
